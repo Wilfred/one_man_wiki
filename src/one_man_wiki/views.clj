@@ -7,7 +7,8 @@
    [:head
     [:title (format "Viewing: %s" name)]]
    [:body
-    [:pre content]]))
+    [:pre content]
+    [:a {:href (format "/%s/edit" name)} "Edit"]]))
 
 (defn edit-page [name content]
   (html5
