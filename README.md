@@ -12,9 +12,15 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 
 ## Running
 
-To start a web server for the application, run:
+Create a database:
 
-    lein ring server
+    $ lein repl
+    user=> (use 'one-man-wiki.models)
+    user=> (create-db)
+
+Start the dev server:
+
+    $ lein ring server
 
 ## License
 
