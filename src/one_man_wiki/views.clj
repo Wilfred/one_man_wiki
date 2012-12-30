@@ -1,9 +1,14 @@
 (ns one-man-wiki.views
-  (:use [hiccup core page]))
+  (:use [hiccup core page])
+  (:require [one-man-wiki.models :as models]))
 
 (defn index-page [page-name]
-  (html5
-    [:head
+  (let [content (:content (models/get-page page-name))]
+    (html5
+     [:head
       [:title "Hello World"]]
-    [:body
-      [:h1 page-name]]))
+     [:body
+      [:pre
+       (if (nil? content)
+         "No content here yet."
+         content)]])))
