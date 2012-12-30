@@ -9,6 +9,8 @@ Target feature set:
 * Automatic internal links using WikiWords
 * XSS protection
 * CSRF protection
+* Poor man's WYSIWYG using monospaced fonts (preferably an attractive one)
+* Togglable automatic line-break insertion (client-side)
 
 TODO: set a maximum number of lines of code, suckless.org style.
 
