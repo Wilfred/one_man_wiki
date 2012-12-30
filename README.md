@@ -2,6 +2,14 @@
 
 A tiny wiki implementation designed to scale down to a single user.
 
+Target feature set:
+
+* Editing
+* Automatic linkification of http:// strings
+* Automatic internal links using WikiWords
+* XSS protection
+* CSRF protection
+
 TODO: set a maximum number of lines of code, suckless.org style.
 
 ## Prerequisites
