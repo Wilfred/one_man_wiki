@@ -2,7 +2,7 @@
   (:use [hiccup core page])
   (:require [one-man-wiki.models :as models]))
 
-(defn index-page [page-name]
+(defn view-page [page-name]
   (let [content (:content (models/get-page page-name))]
     (html5
      [:head
