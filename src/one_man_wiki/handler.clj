@@ -2,11 +2,12 @@
   (:use compojure.core)
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-            [one-man-wiki.views :as views]))
+            [one-man-wiki.views :as views]
+            [one-man-wiki.controllers :as controllers]))
 
 (defroutes app-routes
-  (GET "/:page-name/edit" [page-name] (views/edit-page page-name))
-  (GET "/:page-name" [page-name] (views/view-page page-name))
+  (GET "/:page-name/edit" [page-name] (controllers/edit-page page-name))
+  (GET "/:page-name" [page-name] (controllers/view-page page-name))
   (GET "/" [page-name] (views/index-page "FooBar"))
   (route/not-found "Not Found"))
 

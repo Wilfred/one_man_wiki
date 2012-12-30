@@ -1,26 +1,19 @@
 (ns one-man-wiki.views
-  (:use [hiccup core page form])
-  (:require [one-man-wiki.models :as models]))
+  (:use [hiccup.core :only [html5]]
+        [hiccup.form :only [text-area submit-button]]))
 
-(defn view-page [page-name]
-  (let [content (:content (models/get-page page-name))]
-    (html5
-     [:head
-      [:title (format "Viewing: %s" page-name)]]
-     [:body
-      [:pre
-       (if (nil? content)
-         "No content here yet."
-         content)]])))
+(defn view-page [name content]
+  (html5
+   [:head
+    [:title (format "Viewing: %s" name)]]
+   [:body
+    [:pre content]]))
 
-(defn edit-page [page-name]
-  (let [content (or
-                 (:content (models/get-page page-name))
-                 "No content on this page yet.")]
-    (html5
-     [:head
-      [:title (format "Editing: %s" page-name)]]
-     [:body
-      [:form
-       (text-area "content" content)
-       (submit-button "Save page")]])))
+(defn edit-page [name content]
+  (html5
+   [:head
+    [:title (format "Editing: %s" name)]]
+   [:body
+    [:form
+     (text-area "content" content)
+     (submit-button "Save page")]]))
