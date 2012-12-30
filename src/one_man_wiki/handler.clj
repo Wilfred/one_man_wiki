@@ -8,7 +8,7 @@
 (defroutes app-routes
   (GET "/:page-name/edit" [page-name] (controllers/edit-page page-name))
   (GET "/:page-name" [page-name] (controllers/view-page page-name))
-  (GET "/" [page-name] (views/index-page "FooBar"))
+  (GET "/" [page-name] (controllers/view-page "Home"))
   (route/not-found "Not Found"))
 
 (def app
