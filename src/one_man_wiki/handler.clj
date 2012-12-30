@@ -1,5 +1,6 @@
 (ns one-man-wiki.handler
-  (:use compojure.core)
+  (:use compojure.core
+        [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [one-man-wiki.views :as views]
@@ -10,9 +11,11 @@
   (POST "/:page-name/edit" {params :params}
         (controllers/save-page params))
   (GET "/:page-name" [page-name] (controllers/view-page page-name))
+  (route/resources "/")
   (GET "/" _ {:status 302
               :headers {"Location" "/Home"}})
   (route/not-found "Not Found"))
 
 (def app
-  (handler/site app-routes))
+  (-> (handler/site app-routes)
+      (wrap-base-url)))
