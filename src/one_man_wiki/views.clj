@@ -1,5 +1,5 @@
 (ns one-man-wiki.views
-  (:use [hiccup.core :only [html5]]
+  (:use [hiccup.page :only [html5]]
         [hiccup.form :only [text-area submit-button]]))
 
 (defn view-page [name content]
