@@ -14,6 +14,6 @@
    [:head
     [:title (format "Editing: %s" name)]]
    [:body
-    [:form
+    [:form {:method "POST"}
      (text-area "content" content)
      (submit-button "Save page")]]))

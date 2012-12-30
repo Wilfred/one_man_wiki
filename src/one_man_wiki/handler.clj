@@ -7,6 +7,8 @@
 
 (defroutes app-routes
   (GET "/:page-name/edit" [page-name] (controllers/edit-page page-name))
+  (POST "/:page-name/edit" {params :params}
+        (controllers/save-page params))
   (GET "/:page-name" [page-name] (controllers/view-page page-name))
   (GET "/" _ {:status 302
               :headers {"Location" "/Home"}})
