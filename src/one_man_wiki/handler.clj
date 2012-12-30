@@ -5,6 +5,7 @@
             [one-man-wiki.views :as views]))
 
 (defroutes app-routes
+  (GET "/:page-name/edit" [page-name] (views/edit-page page-name))
   (GET "/:page-name" [page-name] (views/view-page page-name))
   (GET "/" [page-name] (views/index-page "FooBar"))
   (route/not-found "Not Found"))
