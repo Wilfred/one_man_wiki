@@ -12,6 +12,12 @@ Target feature set:
 * Poor man's WYSIWYG using monospaced fonts (preferably an attractive one)
 * Togglable automatic line-break insertion (client-side)
 
+Features deliberately missing:
+
+* User accounts
+* Authentication (use an intranet or HTTP auth)
+* Additional wiki syntax
+
 TODO: set a maximum number of lines of code, suckless.org style.
 
 ## Prerequisites
