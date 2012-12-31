@@ -17,6 +17,7 @@
     [:title (format "Editing: %s" name)]
     (include-css "/css/style.css")]
    [:body
-    [:form {:method "POST"}
-     (text-area "content" content)
-     (submit-button "Save page")]]))
+    [:div {:class "editor"}
+     [:form {:method "POST"}
+      (text-area "content" content)
+      (submit-button "Save page")]]]))

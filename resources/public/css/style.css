@@ -1,3 +1,18 @@
 * {
     font-family: monospace;
+    font-size: 18px;
 }
+
+body {
+    margin-left: 300px;
+}
+
+.editor {
+    width: 600px;
+}
+
+.editor textarea {
+    width: 600px;
+    height: 600px;
+}
+
