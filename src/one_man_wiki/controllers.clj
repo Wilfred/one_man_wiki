@@ -1,12 +1,22 @@
 (ns one-man-wiki.controllers
-  (:require [one-man-wiki.views :as views])
-  (:require [one-man-wiki.models :as models]))
+  (:require [one-man-wiki.views :as views]
+            [one-man-wiki.models :as models]
+            [clojure.string :as str])
+  (:use [hiccup.util :only [escape-html]]))
+
+(defn linkify-content
+  "Escape content, then linkify WikiWords and naked URLs."
+  [content]
+  (clojure.string/replace
+   (escape-html content)
+   #"[A-Z]\w+?[A-Z](\w+)?"
+   "<a href=\"$0\">$0</a>"))
 
 (defn view-page [page-name]
   (let [content (or
                  (:content (models/get-page page-name))
                  "No content on this page yet.")]
-    (views/view-page page-name content)))
+    (views/view-page page-name (linkify-content content))))
 
 (defn edit-page [page-name]
   (let [content (or
