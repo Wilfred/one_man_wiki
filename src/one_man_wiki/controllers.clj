@@ -4,13 +4,16 @@
             [clojure.string :as str])
   (:use [hiccup.util :only [escape-html]]))
 
+(defn linkify-wikiwords [content]
+  (clojure.string/replace
+   content
+   #"[A-Z]\w+?[A-Z](\w+)?"
+   "<a href=\"$0\">$0</a>"))
+
 (defn linkify-content
   "Escape content, then linkify WikiWords and naked URLs."
   [content]
-  (clojure.string/replace
-   (escape-html content)
-   #"[A-Z]\w+?[A-Z](\w+)?"
-   "<a href=\"$0\">$0</a>"))
+  (-> content escape-html linkify-wikiwords))
 
 (defn view-page [page-name]
   (let [content (or
