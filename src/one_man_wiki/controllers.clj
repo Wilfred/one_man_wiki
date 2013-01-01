@@ -10,10 +10,15 @@
    #"[A-Z]\w+?[A-Z](\w+)?"
    "<a href=\"/$0\">$0</a>"))
 
+(defn linkify-urls [content]
+  (clojure.string/replace
+   content
+   #"(https?://\S+)"
+   "<a href=\"$0\">$0</a>"))
+
 (defn linkify-content
-  "Escape content, then linkify WikiWords and naked URLs."
   [content]
-  (-> content escape-html linkify-wikiwords))
+  (-> content escape-html linkify-wikiwords linkify-urls))
 
 (defn view-page [page-name]
   (let [content (or
