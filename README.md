@@ -2,7 +2,7 @@
 
 A tiny wiki implementation designed to scale down to a single user.
 
-Target feature set:
+Features:
 
 * Editing
 * Automatic linkification of http:// strings
@@ -11,8 +11,12 @@ Target feature set:
 * CSRF protection
 * Identical fonts in editor to give poor man's WYSIWYG
 * Monospaced font so code snippets can be included verbatim
+* Old revisions saved
+
+Additional planned features:
+
+* Viewing of old revisions
 * Links to nonexistent pages highlighted
-* History
 
 Features deliberately missing:
 
