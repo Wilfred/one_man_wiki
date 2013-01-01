@@ -8,6 +8,7 @@
     [:title (format "Viewing: %s" name)]
     (include-css "/css/style.css")]
    [:body
+    [:h1 name]
     [:pre content]
     [:a {:href (format "/%s/edit" name)} "Edit"]]))
 
