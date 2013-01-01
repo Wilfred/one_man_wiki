@@ -1,6 +1,7 @@
 (ns one-man-wiki.views
   (:use [hiccup.page :only [html5 include-css]]
-        [hiccup.form :only [text-area submit-button]]))
+        [hiccup.form :only [text-area submit-button]]
+        [ring.util.anti-forgery :only [anti-forgery-field]]))
 
 (defn view-page [name content]
   (html5
@@ -22,4 +23,5 @@
     [:div {:class "editor"}
      [:form {:method "POST"}
       (text-area "content" content)
+      (anti-forgery-field)
       (submit-button "Save page")]]]))
