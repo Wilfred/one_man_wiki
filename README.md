@@ -9,7 +9,8 @@ Target feature set:
 * Automatic internal links using WikiWords
 * XSS protection
 * CSRF protection
-* Poor man's WYSIWYG using monospaced fonts (preferably an attractive one)
+* Identical fonts in editor to give poor man's WYSIWYG
+* Monospaced font so code snippets can be included verbatim
 
 Features deliberately missing:
 
