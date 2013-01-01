@@ -7,8 +7,8 @@
 (defn linkify-wikiwords [content]
   (clojure.string/replace
    content
-   #"[A-Z]\w+?[A-Z](\w+)?"
-   "<a href=\"/$0\">$0</a>"))
+   #"(\s|\A)([A-Z]\w+?[A-Z](\w+)?)"
+   "$1<a href=\"/$2\">$2</a>"))
 
 (defn linkify-urls [content]
   (clojure.string/replace
