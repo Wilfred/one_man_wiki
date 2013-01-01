@@ -8,7 +8,7 @@
   (clojure.string/replace
    content
    #"[A-Z]\w+?[A-Z](\w+)?"
-   "<a href=\"$0\">$0</a>"))
+   "<a href=\"/$0\">$0</a>"))
 
 (defn linkify-content
   "Escape content, then linkify WikiWords and naked URLs."
