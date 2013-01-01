@@ -11,6 +11,7 @@ Target feature set:
 * CSRF protection
 * Identical fonts in editor to give poor man's WYSIWYG
 * Monospaced font so code snippets can be included verbatim
+* History
 
 Features deliberately missing:
 

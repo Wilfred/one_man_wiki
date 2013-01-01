@@ -9,13 +9,18 @@
 
 (defn create-db []
   (with-connection db
-    (create-table :pages
-                  [:name :text]
-                  [:content :text])))
+    (create-table
+     :pages
+     [:name "varchar(255)"]
+     [:content :text]
+     [:created :timestamp "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"])))
 
 (defn get-page [name]
   (with-connection db
-    (with-query-results rs ["SELECT * FROM pages WHERE name = ?" name]
+    (with-query-results rs
+      ;; most recent version of this page
+      ["SELECT * FROM pages WHERE name = ? ORDER BY created DESC LIMIT 1"
+       name]
       (into {} rs))))
 
 (defn set-page [name content]
