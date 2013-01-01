@@ -18,6 +18,7 @@
     [:title (format "Editing: %s" name)]
     (include-css "/css/style.css")]
    [:body
+    [:h1 (format "Editing: %s" name)]
     [:div {:class "editor"}
      [:form {:method "POST"}
       (text-area "content" content)
