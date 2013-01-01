@@ -8,8 +8,9 @@
 
 (defroutes app-routes
   (GET "/:page-name/edit" [page-name] (controllers/edit-page page-name))
-  (POST "/:page-name/edit" {params :params}
-        (controllers/save-page params))
+  (POST "/:page-name/edit"
+        {{page-name :page-name content :content} :params}
+        (controllers/save-page page-name content))
   (GET "/:page-name" [page-name] (controllers/view-page page-name))
   (route/resources "/")
   (GET "/" _ {:status 302

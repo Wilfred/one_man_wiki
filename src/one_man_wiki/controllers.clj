@@ -32,12 +32,9 @@
                  "No content on this page yet.")]
     (views/edit-page page-name content)))
 
-(defn save-page [params]
-  ;; TODO: can we do this destructuring in the handler?
-  (let [page-name (:page-name params)
-        content (:content params)]
-    ;; update the page
-    (models/set-page page-name content)
-    ;; now redirect to it
-    {:status 302
-     :headers {"Location" (format "/%s" page-name)}}))
+(defn save-page [page-name content]
+  ;; update the page
+  (models/set-page page-name content)
+  ;; now redirect to it
+  {:status 302
+   :headers {"Location" (format "/%s" page-name)}})
