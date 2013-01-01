@@ -10,7 +10,6 @@ Target feature set:
 * XSS protection
 * CSRF protection
 * Poor man's WYSIWYG using monospaced fonts (preferably an attractive one)
-* Togglable automatic line-break insertion (client-side)
 
 Features deliberately missing:
 
