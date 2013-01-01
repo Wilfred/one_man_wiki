@@ -39,4 +39,4 @@ Start the dev server:
 
 ## License
 
-Copyright © 2012 Wilfred Hughes
+GPL v2 or later. Copyright © 2012 Wilfred Hughes
