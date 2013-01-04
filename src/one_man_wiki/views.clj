@@ -6,7 +6,7 @@
 (defn view-page [name content]
   (html5
    [:head
-    [:title (format "Viewing: %s" name)]
+    [:title (format "OneManWiki Viewing: %s" name)]
     (include-css "/css/style.css")]
    [:body
     [:h1 name]
@@ -16,7 +16,7 @@
 (defn edit-page [name content]
   (html5
    [:head
-    [:title (format "Editing: %s" name)]
+    [:title (format "OneManWiki Editing: %s" name)]
     (include-css "/css/style.css")]
    [:body
     [:h1 (format "Editing: %s" name)]
