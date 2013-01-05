@@ -1,5 +1,5 @@
 (ns one-man-wiki.views
-  (:use [hiccup.page :only [html5 include-css]]
+  (:use [hiccup.page :only [html5 include-css include-js]]
         [hiccup.form :only [text-area submit-button]]
         [ring.util.anti-forgery :only [anti-forgery-field]]))
 
@@ -11,7 +11,9 @@
    [:body
     [:h1 name]
     [:pre content]
-    [:a {:href (format "/%s/edit" name)} "Edit"]]))
+    [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]
+    (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
+    (include-js "/js/shortcuts.js")]))
 
 (defn edit-page [name content]
   (html5
@@ -24,4 +26,6 @@
      [:form {:method "POST"}
       (text-area "content" content)
       (anti-forgery-field)
-      (submit-button "Save page")]]]))
+      (submit-button "Save page")]]
+    (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
+    (include-js "/js/shortcuts.js")]))
