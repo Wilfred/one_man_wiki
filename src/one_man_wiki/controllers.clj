@@ -27,9 +27,7 @@
     (views/view-page page-name (linkify-content content))))
 
 (defn edit-page [page-name]
-  (let [content (or
-                 (:content (models/get-page page-name))
-                 "No content on this page yet.")]
+  (let [content (or (:content (models/get-page page-name)) "")]
     (views/edit-page page-name content)))
 
 (defn save-page [page-name content]
