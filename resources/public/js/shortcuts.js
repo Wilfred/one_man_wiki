@@ -9,6 +9,12 @@
     };
 })(jQuery);
 
+function isViewingPage() {
+    // are we viewing or editing a page?
+    var $editButton = $("#edit-page");
+    return $editButton.length > 0;
+}
+
 function activateEditShorcut() {
     // we are on the view page, so allow <Enter> to start editing
     var $editButton = $("#edit-page");
@@ -33,9 +39,7 @@ function activateEditShorcut() {
 }
 
 $(document).ready(function() {
-    var $editButton = $("#edit-page");
-
-    if ($editButton.length) {
+    if (isViewingPage()) {
         activateEditShorcut();
     } else {
         // editing page, so focus the textarea
