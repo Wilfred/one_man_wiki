@@ -26,7 +26,7 @@ function activateEditShorcut() {
 
     // load the editor when the shortcut is pressed
     $('body').keydown(function(e) {
-        if (e.which == 13) { // enter key
+        if (e.which == 13 && isViewingPage()) { // enter key
             loadEditor();
         }
     });
