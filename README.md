@@ -24,6 +24,11 @@ Features deliberately missing:
 * Authentication (use an intranet or HTTP auth)
 * Additional wiki syntax
 
+Shorcuts:
+
+* When viewing, press <Enter> to start editing.
+* When editing, press <Tab><Enter> to save.
+
 TODO: set a maximum number of lines of code, suckless.org style.
 
 ## Prerequisites
