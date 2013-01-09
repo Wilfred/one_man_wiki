@@ -23,7 +23,7 @@
    [:body
     [:h1 (format "Editing: %s" name)]
     [:div {:class "editor"}
-     [:form {:method "POST"}
+     [:form {:method "POST" :action (format "/%s/edit" name)}
       (text-area "content" content)
       (anti-forgery-field)
       (submit-button "Save page")]]

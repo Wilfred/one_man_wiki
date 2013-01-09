@@ -24,7 +24,7 @@ Features deliberately missing:
 * Authentication (use an intranet or HTTP auth)
 * Additional wiki syntax
 
-Shorcuts:
+Shorcuts (when JS is enabled):
 
 * When viewing, press <Enter> to start editing.
 * When editing, press <Tab><Enter> to save.
