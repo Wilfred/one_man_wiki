@@ -15,7 +15,7 @@ function isViewingPage() {
     return $editButton.length > 0;
 }
 
-function activateEditShorcut() {
+function activateEditShortcut() {
     // we are on the view page, so allow <Enter> to start editing
     var $editButton = $("#edit-page");
 
@@ -35,12 +35,12 @@ function activateEditShorcut() {
     $editButton.click(function(e) {
         e.preventDefault();
         loadEditor();
-    })
+    });
 }
 
 $(document).ready(function() {
     if (isViewingPage()) {
-        activateEditShorcut();
+        activateEditShortcut();
     } else {
         // editing page, so focus the textarea
         $('textarea').focusToEnd();
