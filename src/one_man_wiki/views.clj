@@ -12,7 +12,7 @@
     [:h1 name]
     [:pre content]
     [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]
-    (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
+    (include-js "/js/jquery.min.js")
     (include-js "/js/shortcuts.js")]))
 
 (defn edit-page [name content]
