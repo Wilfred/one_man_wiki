@@ -26,6 +26,8 @@
      [:form {:method "POST" :action (format "/%s/edit" name)}
       (text-area "content" content)
       (anti-forgery-field)
-      (submit-button "Save page")]]
+      (submit-button "Save page")
+      [:span " "]
+      [:a {:href (format "/%s" name)} "Cancel"]]]
     (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
     (include-js "/js/shortcuts.js")]))
