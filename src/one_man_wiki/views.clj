@@ -28,6 +28,6 @@
       (anti-forgery-field)
       (submit-button "Save page")
       [:span " "]
-      [:a {:href (format "/%s" name)} "Cancel"]]]
+      [:a {:href (format "/%s" name) :id "cancel-edit"} "Cancel"]]]
     (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
     (include-js "/js/shortcuts.js")]))

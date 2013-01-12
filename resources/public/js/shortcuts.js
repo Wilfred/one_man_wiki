@@ -15,17 +15,18 @@ function isViewingPage() {
     return $editButton.length > 0;
 }
 
-function activateEditShortcut() {
+function activateViewingShorcuts() {
     // we are on the view page, so allow <Enter> to start editing
     var $editButton = $("#edit-page");
 
     function loadEditor() {
         var editUrl = $editButton.attr('href');
         $('body').load(editUrl);
+        activateEditingShortcuts();
     }
 
     // load the editor when the shortcut is pressed
-    $('body').keydown(function(e) {
+    $('body').keypress(function(e) {
         if (e.which == 13 && isViewingPage()) { // enter key
             loadEditor();
         }
@@ -38,11 +39,25 @@ function activateEditShortcut() {
     });
 }
 
+function activateEditingShortcuts() {
+    // editing page, so focus the textarea
+    $('textarea').focusToEnd();
+
+    // go back to viewing if escape is pressed
+    $('body').keypress(function(e) {
+        if (e.keyCode == 27 && !isViewingPage()) { // escape key
+            e.preventDefault();
+
+            var viewUrl = $("#cancel-edit").attr("href");
+            $('body').load(viewUrl);
+        }
+    });
+}
+
 $(document).ready(function() {
     if (isViewingPage()) {
-        activateEditShortcut();
+        activateViewingShorcuts();
     } else {
-        // editing page, so focus the textarea
-        $('textarea').focusToEnd();
+        activateEditingShortcuts();
     }
 });
