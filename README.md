@@ -28,8 +28,8 @@ Shorcuts (when JS is enabled):
 
 * When viewing, press <Enter> to start editing.
 * When editing, press <Tab><Enter> to save.
-* When editing, press <Escape> to discard edits and go back to
-  viewing.
+* When editing, press <Escape> to go back to viewing (when no changes
+  have been made).
 
 TODO: set a maximum number of lines of code, suckless.org style.
 

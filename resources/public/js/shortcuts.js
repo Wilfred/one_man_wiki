@@ -48,8 +48,12 @@ function activateEditingShortcuts() {
         if (e.keyCode == 27 && !isViewingPage()) { // escape key
             e.preventDefault();
 
-            var viewUrl = $("#cancel-edit").attr("href");
-            $('body').load(viewUrl);
+            // don't go back to viewing if we'd lose content
+            var originalText = $('textarea').text();
+            if (originalText == $('textarea').val()) {
+                var viewUrl = $("#cancel-edit").attr("href");
+                $('body').load(viewUrl);
+            }
         }
     });
 }
