@@ -3,25 +3,27 @@
         [hiccup.form :only [text-area submit-button]]
         [ring.util.anti-forgery :only [anti-forgery-field]]))
 
-(defn view-page [name content]
+(defn base-page [title body]
   (html5
    [:head
-    [:title (format "OneManWiki Viewing: %s" name)]
+    [:title title]
     (include-css "/css/style.css")]
-   [:body
-    [:h1 name]
+   (into
+    (into [:body] body)
+    [(include-js "/js/jquery.min.js")
+    (include-js "/js/shortcuts.js")])))
+
+(defn view-page [name content]
+  (base-page
+   (format "OneManWiki Viewing: %s" name)
+   [[:h1 name]
     [:pre content]
-    [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]
-    (include-js "/js/jquery.min.js")
-    (include-js "/js/shortcuts.js")]))
+    [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]]))
 
 (defn edit-page [name content]
-  (html5
-   [:head
-    [:title (format "OneManWiki Editing: %s" name)]
-    (include-css "/css/style.css")]
-   [:body
-    [:h1 (format "Editing: %s" name)]
+  (base-page
+   (format "OneManWiki Editing: %s" name)
+   [[:h1 (format "Editing: %s" name)]
     [:div {:class "editor"}
      [:form {:method "POST" :action (format "/%s/edit" name)}
       (text-area "content" content)
@@ -30,6 +32,4 @@
       [:span " "]
       [:a {:href (format "/%s" name) :id "cancel-edit"} "Cancel"]
       [:p "&lt;Tab&gt;&lt;Enter&gt; to save"]
-      [:p "&lt;Escape&gt; to cancel"]]]
-    (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
-    (include-js "/js/shortcuts.js")]))
+      [:p "&lt;Escape&gt; to cancel"]]]]))
