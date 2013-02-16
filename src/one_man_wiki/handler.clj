@@ -11,7 +11,7 @@
   (POST "/:page-name/edit"
         {{page-name :page-name content :content} :params}
         (controllers/save-page page-name content))
-  (GET "/:page-name" [page-name] (controllers/view-page page-name))
+  (GET "/:page-name" [page-name v] (controllers/view-page page-name v))
   (route/resources "/")
   (GET "/" _ {:status 302
               :headers {"Location" "/Home"}})
