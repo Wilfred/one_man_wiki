@@ -29,9 +29,9 @@
        page-name version]
       (into {} rs))))
 
-(defn set-page [name content]
+(defn update-page [page-name content]
   (with-connection db
     (insert-records
      :pages
-     {:name name
+     {:name page-name
       :content content})))
