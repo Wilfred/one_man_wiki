@@ -21,8 +21,8 @@
   (-> content escape-html linkify-wikiwords linkify-urls))
 
 (defn view-page [page-name version]
-  (let [page-content (:content (if version (models/get-page page-name version)
-                                   (models/get-page page-name)))
+  (let [page-content (:content (if version (models/get-revision page-name version)
+                                   (models/get-latest-revision page-name)))
         content (or page-content "No content on this page yet.")]
     (views/view-page page-name (linkify-content content))))
 
