@@ -12,5 +12,6 @@
   :plugins [[lein-ring "0.7.5"]]
   :jvm-opts ["-Xms32m"  "-Xmx64m"]
   :ring {:handler one-man-wiki.handler/app}
+  :min-lein-version "2.0.0"
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}})
