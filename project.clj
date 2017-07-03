@@ -9,7 +9,8 @@
                  [org.clojure/java.jdbc "0.2.3"]
                  [org.xerial/sqlite-jdbc "3.7.2"]
                  [hiccup "1.0.2"]]
-  :plugins [[lein-ring "0.9.7"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-exec "0.3.6"]]
   :ring {:handler solo-wiki.handler/app}
   :min-lein-version "2.0.0"
   :profiles
