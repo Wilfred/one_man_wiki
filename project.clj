@@ -13,4 +13,5 @@
   :ring {:handler one-man-wiki.handler/app}
   :min-lein-version "2.0.0"
   :profiles
-  {:dev {:dependencies [[ring-mock "0.1.3"]]}})
+  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                        [ring/ring-mock "0.3.0"]]}})
