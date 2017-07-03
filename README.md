@@ -1,4 +1,4 @@
-# one-man-wiki
+# solo-wiki
 
 A tiny wiki implementation designed to scale down to a single user.
 
@@ -50,7 +50,3 @@ Create a database:
 Start the dev server:
 
     $ lein ring server
-
-## License
-
-GPL v2 or later. Copyright © 2012 Wilfred Hughes
