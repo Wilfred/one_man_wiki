@@ -1,4 +1,4 @@
-(ns one-man-wiki.views
+(ns solo-wiki.views
   (:use [hiccup.page :only [html5 include-css include-js]]
         [hiccup.form :only [text-area submit-button]]
         [ring.util.anti-forgery :only [anti-forgery-field]]))
@@ -15,14 +15,14 @@
 
 (defn view-page [name content]
   (base-page
-   (format "OneManWiki Viewing: %s" name)
+   (format "SoloWiki Viewing: %s" name)
    [[:h1 name]
     [:pre content]
     [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]]))
 
 (defn edit-page [name content]
   (base-page
-   (format "OneManWiki Editing: %s" name)
+   (format "SoloWiki Editing: %s" name)
    [[:h1 (format "Editing: %s" name)]
     [:div {:class "editor"}
      [:form {:method "POST" :action (format "/%s/edit" name)}

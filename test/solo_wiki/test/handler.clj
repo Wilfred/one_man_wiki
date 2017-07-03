@@ -1,7 +1,7 @@
-(ns one-man-wiki.test.handler
+(ns solo-wiki.test.handler
   (:use clojure.test
         ring.mock.request  
-        one-man-wiki.handler))
+        solo-wiki.handler))
 
 (deftest test-app
   (testing "redirect home page"

@@ -44,7 +44,7 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 Create a database:
 
     $ lein repl
-    user=> (use 'one-man-wiki.models)
+    user=> (use 'solo-wiki.models)
     user=> (create-db)
 
 Start the dev server:

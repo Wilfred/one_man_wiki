@@ -1,6 +1,6 @@
-(ns one-man-wiki.controllers
-  (:require [one-man-wiki.views :as views]
-            [one-man-wiki.models :as models]
+(ns solo-wiki.controllers
+  (:require [solo-wiki.views :as views]
+            [solo-wiki.models :as models]
             [clojure.string :as str])
   (:use [hiccup.util :only [escape-html]]))
 

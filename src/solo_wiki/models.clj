@@ -1,4 +1,4 @@
-(ns one-man-wiki.models
+(ns solo-wiki.models
   (:use [clojure.java.jdbc])
   (:refer-clojure :exclude [resultset-seq]))
 

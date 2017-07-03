@@ -1,10 +1,10 @@
-(ns one-man-wiki.handler
+(ns solo-wiki.handler
   (:use compojure.core
         [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-            [one-man-wiki.views :as views]
-            [one-man-wiki.controllers :as controllers]))
+            [solo-wiki.views :as views]
+            [solo-wiki.controllers :as controllers]))
 
 (defroutes app-routes
   (GET "/:page-name/edit" [page-name] (controllers/edit-page page-name))
