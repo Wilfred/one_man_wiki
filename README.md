@@ -48,3 +48,12 @@ Create a database:
 Start the dev server:
 
     $ lein ring server
+
+## Docker
+
+You can start a demo instance in Docker with:
+
+    $ docker run -P --name mywiki wilfred/solo-wiki
+
+Note that this **does not preserve data**. This is intended for demos,
+and doesn't use volumes. If you kill the container, your data is gone.
