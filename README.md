@@ -1,4 +1,4 @@
-# solo-wiki
+# solo-wiki [![Build Status](https://travis-ci.org/Wilfred/solo-wiki.svg?branch=master)](https://travis-ci.org/Wilfred/solo-wiki)
 
 A tiny wiki implementation designed to scale down to a single user.
 
