@@ -13,6 +13,13 @@
     [(include-js "/js/jquery.min.js")
     (include-js "/js/shortcuts.js")])))
 
+(defn nonexistent-page [name]
+  (base-page
+   (format "SoloWiki: No such page: %s" name)
+   [[:h1 name]
+    [:pre "No page with this name exists yet."]
+    [:a {:href (format "/%s/edit" name) :id "edit-page"} "Create"]]))
+
 (defn view-page [name content]
   (base-page
    (format "SoloWiki Viewing: %s" name)

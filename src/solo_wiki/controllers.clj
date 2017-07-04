@@ -21,10 +21,12 @@
   (-> content escape-html linkify-wikiwords linkify-urls))
 
 (defn view-page [page-name version]
-  (let [page-content (:content (if version (models/get-revision page-name version)
-                                   (models/get-latest-revision page-name)))
-        content (or page-content "No content on this page yet.")]
-    (views/view-page page-name (linkify-content content))))
+  (let [page (if version (models/get-revision page-name version)
+                         (models/get-latest-revision page-name))]
+    (if (empty? page)
+      (views/nonexistent-page page-name)
+      (views/view-page page-name
+                       (linkify-content (:content page))))))
 
 (defn edit-page [page-name]
   (let [content (or (:content (models/get-latest-revision page-name)) "")]
