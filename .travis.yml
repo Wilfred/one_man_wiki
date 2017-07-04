@@ -2,3 +2,6 @@ language: clojure
 
 before_script:
   - lein exec -ep "(use 'solo-wiki.models) (create-db)"
+
+notifications:
+  email: false
