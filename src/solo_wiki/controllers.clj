@@ -24,7 +24,8 @@
   (let [page (if version (models/get-revision page-name version)
                          (models/get-latest-revision page-name))]
     (if (empty? page)
-      (views/nonexistent-page page-name)
+      {:status 404
+       :body (views/nonexistent-page page-name)}
       (views/view-page page-name
                        (linkify-content (:content page))))))
 

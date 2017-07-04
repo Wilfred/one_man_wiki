@@ -14,5 +14,4 @@
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
-      ;; TODO: this should be 404
-      (is (= (:status response) 200)))))
+      (is (= (:status response) 404)))))
