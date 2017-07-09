@@ -7,14 +7,6 @@
    :subprotocol "sqlite"
    :subname "wiki.db"})
 
-(defn create-db []
-  (with-connection db
-    (create-table
-     :pages
-     [:name "varchar(255)"]
-     [:content :text]
-     [:created :timestamp "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"])))
-
 (defn get-latest-revision [page-name]
   (with-connection db
     (with-query-results rs
@@ -35,3 +27,12 @@
      :pages
      {:name page-name
       :content content})))
+
+(defn create-db []
+  (with-connection db
+    (create-table
+     :pages
+     [:name "varchar(255)"]
+     [:content :text]
+     [:created :timestamp "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]))
+  (update-page "Home" "hello world!"))
