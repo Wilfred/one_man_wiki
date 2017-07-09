@@ -1,0 +1,3 @@
+# don't copy this into the container. It's pointless, and means any
+# change to the Dockerfile re-runs the whole build.
+Dockerfile
