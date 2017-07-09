@@ -1,3 +1,7 @@
 # don't copy this into the container. It's pointless, and means any
 # change to the Dockerfile re-runs the whole build.
 Dockerfile
+
+# We create the db during the build, so don't get confused with the
+# local DB.
+wiki.db
