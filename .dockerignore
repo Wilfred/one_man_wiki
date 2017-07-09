@@ -1,6 +1,24 @@
-# don't copy this into the container. It's pointless, and means any
-# change to the Dockerfile re-runs the whole build.
+# .gitignore
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+*.jar
+*.class
+.lein-deps-sum
+.lein-failures
+.lein-plugins
+.lein-env
+.lein-repl-history
+.nrepl-port
+
+# Files that we don't need to build the app.
+.dockerignore
+.travis.yml
 Dockerfile
+README.md
+test
 
 # We create the db during the build, so don't get confused with the
 # local DB.
