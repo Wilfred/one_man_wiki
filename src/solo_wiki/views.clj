@@ -3,6 +3,10 @@
         [hiccup.form :only [text-area submit-button]]
         [ring.util.anti-forgery :only [anti-forgery-field]]))
 
+(defn site-name []
+  (or (System/getenv "WIKI_NAME")
+      "SoloWiki"))
+
 (defn base-page [title body]
   (html5
    [:head
@@ -15,21 +19,21 @@
 
 (defn nonexistent-page [name]
   (base-page
-   (format "SoloWiki: No such page: %s" name)
+   (format "%s: No such page: %s" (site-name) name)
    [[:h1 name]
     [:pre "No page with this name exists yet."]
     [:a {:href (format "/%s/edit" name) :id "edit-page"} "Create"]]))
 
 (defn view-page [name content]
   (base-page
-   (format "SoloWiki Viewing: %s" name)
+   (format "%s: %s" (site-name) name)
    [[:h1 name]
     [:pre content]
     [:a {:href (format "/%s/edit" name) :id "edit-page"} "Edit"]]))
 
 (defn edit-page [name content]
   (base-page
-   (format "SoloWiki Editing: %s" name)
+   (format "%s: Editing: %s" (site-name) name)
    [[:h1 (format "Editing: %s" name)]
     [:div {:class "editor"}
      [:form {:method "POST" :action (format "/%s/edit" name)}

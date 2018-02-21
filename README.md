@@ -57,3 +57,5 @@ You can start a demo instance in Docker with:
 
 Note that this **does not preserve data**. This is intended for demos,
 and doesn't use volumes. If you kill the container, your data is gone.
+
+The site respects the environment variable `WIKI_NAME`.
